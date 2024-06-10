@@ -26,8 +26,8 @@ o	Cluster proteins based on similarity, selecting one representative from each c
 o	Use PDB search: return -> polymer entities, group by -> S.I. 50% or above.
 o	Alternatively, perform pairwise alignments and cluster according to similarity level.
 o	Obtain the ID, sequence, and chain (Auth Asym ID), and download in JSON or CSV format.
-o	Clean up results by removing quotes (tr -d "").
-o	Extract values and disregard lines without entry IDs (awk -F "," 'if ($1!="") { print $1 $2 $3}').
+o	Clean up results by removing quotes.
+o	Extract values and disregard lines without entry IDs.
 
 ### 3.	Perform Pairwise Alignments:
 o	Use blastclust for all-against-all pairwise alignments.
@@ -37,11 +37,13 @@ o	For a limited number of sequences, consider global alignment.
 
 ### 4.	Alternative Method:
 o	Select one representative and use PDBeFold for pairwise alignment against the PDB to find similar structures, noting possible functional differences.
-Step 2: Multiple Structure Alignment
+
+## Step 2: Multiple Structure Alignment
 •	Upload the list of PDB codes to PDBeFold.
 •	Address alignment issues where positions contain mostly gaps, which can hinder HMMER's ability to calculate probabilities.
-•	Format alignments with one whole sequence per line (awk '{if (substr($0,1,1)==">") {print "\n"$1} else { printf "%s",$1 } }').
-Step 3: Generate HMM
+•	Format alignments with one whole sequence by line 
+
+## Step 3: Generate HMM
 •	Use hmmbuild to create the HMM.
 •	Ensure it skips the first and last positions with too many gaps.
 •	Verify the length of the model.
