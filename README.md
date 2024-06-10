@@ -17,37 +17,34 @@ Specific Objectives
 ## Step 1: Data Collection
 ### 1.	Access the PDB Database:
 
-o	Query using CATH ID or PFAM ID.
-
-o	Set data collection resolution to ≤ 3 Å.
-
-o	Specify size between 50-80 residues.
-
-o	Exclude mutant proteins.
+*	Query using CATH ID or PFAM ID.
+*	Set data collection resolution to ≤ 3 Å.
+*	Specify size between 50-80 residues.
+*	Exclude mutant proteins.
 
 ### 2.	Handle Redundancy:
-o	Cluster proteins based on similarity, selecting one representative from each cluster.
-o	Use PDB search: return -> polymer entities, group by -> S.I. 50% or above.
-o	Alternatively, perform pairwise alignments and cluster according to similarity level.
-o	Obtain the ID, sequence, and chain (Auth Asym ID), and download in JSON or CSV format.
-o	Clean up results by removing quotes.
-o	Extract values and disregard lines without entry IDs.
+*	Cluster proteins based on similarity, selecting one representative from each cluster.
+*	Use PDB search: return -> polymer entities, group by -> S.I. 50% or above.
+*	Alternatively, perform pairwise alignments and cluster according to similarity level.
+*	Obtain the ID, sequence, and chain, and download in JSON or CSV format.
+*	Clean up results by removing quotes.
+*	Extract values and disregard lines without entry IDs.
 
 ### 3.	Perform Pairwise Alignments:
-o	Use blastclust for all-against-all pairwise alignments.
-o	Set score and coverage thresholds (blastclust -i <fastafile> -o <outfile> -S 80 -L 0.8).
-o	Each line in the output file represents a cluster.
-o	For a limited number of sequences, consider global alignment.
+*	Use blastclust for all-against-all pairwise alignments.
+*	Set score and coverage thresholds.
+*	Each line in the output file represents a cluster.
+*	For a limited number of sequences, consider global alignment.
 
 ### 4.	Alternative Method:
-o	Select one representative and use PDBeFold for pairwise alignment against the PDB to find similar structures, noting possible functional differences.
+*	Select one representative and use PDBeFold for pairwise alignment against the PDB to find similar structures, noting possible functional differences.
 
 ## Step 2: Multiple Structure Alignment
-•	Upload the list of PDB codes to PDBeFold.
-•	Address alignment issues where positions contain mostly gaps, which can hinder HMMER's ability to calculate probabilities.
-•	Format alignments with one whole sequence by line 
+*	Upload the list of PDB codes to PDBeFold.
+*	Address alignment issues where positions contain mostly gaps, which can hinder HMMER's ability to calculate probabilities.
+*	Format alignments with one whole sequence by line 
 
 ## Step 3: Generate HMM
-•	Use hmmbuild to create the HMM.
-•	Ensure it skips the first and last positions with too many gaps.
-•	Verify the length of the model.
+*	Use hmmbuild to create the HMM.
+*	Ensure it skips the first and last positions with too many gaps.
+*	Verify the length of the model.
