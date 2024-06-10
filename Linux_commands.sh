@@ -16,3 +16,6 @@ cat PDB_report.csv | tr -d '"' | tail -n +3 | awk -F "," '{if ($1!="") {print ">
 cat PDB_report.csv | tr -d '"' | tail -n +3 | awk -F "," '{if ($1!="") {print ">"$5”_”$3"\n"$2}}' > pdb_seq.fasta
 
 grep “>” pdb_seq.fasta |wc
+
+# Use the command to see only the identifier
+cat PDB_report.csv | tr -d '"' |tail -n +3 |awk -F "," '{if ($1!="") {print $5, $3}}' |less
