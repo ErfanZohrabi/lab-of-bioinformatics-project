@@ -16,10 +16,14 @@ Specific Objectives
 # Procedure:
 ## Step 1: Data Collection
 ### 1.	Access the PDB Database:
-#### o	Query using CATH ID or PFAM ID.
-#### o	Set data collection resolution to ≤ 3 Å.
-#### o	Specify size between 50-80 residues.
-#### o	Exclude mutant proteins.
+
+o	Query using CATH ID or PFAM ID.
+
+o	Set data collection resolution to ≤ 3 Å.
+
+o	Specify size between 50-80 residues.
+
+o	Exclude mutant proteins.
 
 ### 2.	Handle Redundancy:
 o	Cluster proteins based on similarity, selecting one representative from each cluster.
