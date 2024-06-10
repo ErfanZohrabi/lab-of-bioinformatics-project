@@ -12,3 +12,6 @@ The principal aim is to construct a Profile HMM for the Kunitz-type protease inh
 Specific Objectives
 •	Develop a model for the Kunitz domain using structural data.
 •	Identify the optimal e-value threshold for binary classification based on HMM search outcomes.
+
+# Procedure:
+you can find the whole procedure in file which is in the same name in the repository
