@@ -21,3 +21,4 @@ grep “>” pdb_seq.fasta |wc
 cat PDB_report.csv | tr -d '"' |tail -n +3 |awk -F "," '{if ($1!="") {print $5, $3}}' |less
 
 ## this is the result :  => 21 21 168
+
